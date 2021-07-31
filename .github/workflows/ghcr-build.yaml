@@ -17,6 +17,11 @@ jobs:
         name: Checkout
         uses: actions/checkout@v2
         
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
       - name: Set variables
         run: |
           VER=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
