@@ -5,13 +5,13 @@ WORKDIR /app
 
 COPY package.json yarn.lock ./
 
-RUN yarn install 
+RUN npm install 
 
 COPY . .
 
-RUN yarn build
+RUN npm run build
 
-RUN yarn install
+RUN npm install
 
 
 # Stage 2: And then copy over node_modules, etc from that stage to the smaller base image
