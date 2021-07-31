@@ -5,12 +5,13 @@ WORKDIR /app
 
 COPY package.json yarn.lock ./
 
-RUN yarn install --frozen-lockfile
+RUN yarn install 
 
 COPY . .
 
 RUN yarn build
-RUN yarn install --production --frozen-lockfile
+
+RUN yarn install
 
 
 # Stage 2: And then copy over node_modules, etc from that stage to the smaller base image
